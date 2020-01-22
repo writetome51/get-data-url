@@ -10,11 +10,14 @@ An async function that returns a data URL generated from `file`.
     a function:  
 -->
 <p>Choose file to generate data url from:</p>
-<input type="file"  (change)="addToURLs($event.target.file)"/>
+<input type="file"  (change)="addToURLs($event.target.files[0])"/>
 ```
 
 ```ts
 // In a javascript component:
+
+dataURLs = [];
+
 async addToURLs(file) {
      let url = await getDataURL(file);
      this.dataURLs.push(url);
