@@ -1,0 +1,29 @@
+{
+  "name": "@writetome51/get-data-url",
+  "version": "0.0.1",
+  "description": "Async function that returns data URL generated from a File",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/writetome51/get-data-url.git"
+  },
+  "keywords": [
+    "data-url",
+    "data",
+    "url",
+    "file"
+  ],
+  "author": "Steve Thompson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/writetome51/get-data-url/issues"
+  },
+  "homepage": "https://github.com/writetome51/get-data-url#readme",
+  "devDependencies": {},
+  "dependencies": {
+  }
+}
