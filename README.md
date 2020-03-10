@@ -1,4 +1,4 @@
-# getDataURL(file: File): Promise&lt;string&gt;
+# getDataURL(file: Blob): Promise&lt;string&gt;
 
 An async function that returns a data URL generated from `file`.
 

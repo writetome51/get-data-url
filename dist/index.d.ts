@@ -2,9 +2,10 @@
  Returns base64 data url extracted from file.
  Usage Example:
 
- async set_dataURL(file){
+ async addTo_dataURLs(file) {
      let url = await getDataURL(file);
      this.dataURLs.push(url);
  }
  ************************/
-export declare function getDataURL(file: File): Promise<string>;
+
+export declare function getDataURL(file: Blob): Promise<string>;

@@ -1,13 +1,4 @@
 "use strict";
-/**************************
- Returns base64 data url extracted from file.
- Usage Example:
-
- async set_dataURL(file){
-     let url = await getDataURL(file);
-     this.dataURLs.push(url);
- }
- ************************/
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -18,16 +9,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const file_reader_service_1 = require("@writetome51/file-reader-service");
+/**************************
+ Returns base64 data url extracted from file.
+ Usage Example:
+
+ async addTo_dataURLs(file) {
+     let url = await getDataURL(file);
+     this.dataURLs.push(url);
+ }
+ ************************/
 function getDataURL(file) {
     return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((returnData) => {
-            const reader = new FileReader();
-            reader.onload = () => {
-                // @ts-ignore
-                returnData(reader.result);
-            };
-            reader.readAsDataURL(file);
-        });
+        class DataURLFileReaderService extends file_reader_service_1.FileReaderService {
+            constructor() {
+                super('readAsDataURL');
+            }
+        }
+        return (new DataURLFileReaderService()).getContents(file);
     });
 }
 exports.getDataURL = getDataURL;

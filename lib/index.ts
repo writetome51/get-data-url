@@ -1,25 +1,24 @@
+import { FileReaderService } from '@writetome51/file-reader-service';
+
+
 /**************************
  Returns base64 data url extracted from file.
  Usage Example:
 
- async set_dataURL(file){
+ async addTo_dataURLs(file) {
      let url = await getDataURL(file);
      this.dataURLs.push(url);
  }
  ************************/
 
 
-export async function getDataURL(file: File): Promise<string> {
+export async function getDataURL(file: Blob): Promise<string> {
 
-	return new Promise((returnData) => {
+	class DataURLFileReaderService extends FileReaderService {
+		constructor() {
+			super('readAsDataURL');
+		}
+	}
 
-		const reader = new FileReader();
-
-		reader.onload = () => {
-			// @ts-ignore
-			returnData(reader.result);
-		};
-
-		reader.readAsDataURL(file);
-	});
+	return (new DataURLFileReaderService()).getContents(file);
 }
