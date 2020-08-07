@@ -2,7 +2,7 @@ import { FileReaderService } from '@writetome51/file-reader-service';
 
 
 /**************************
- Returns base64 data url extracted from file.
+ Returns base64 data url extracted from `file`.
  Usage Example:
 
  async addTo_dataURLs(file) {

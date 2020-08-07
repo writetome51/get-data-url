@@ -4,36 +4,36 @@ An async function that returns a data URL generated from `file`.
 
 
 ## Example
+Demonstrates usage in an Angular project:
 
 ```html
-<!--  In the html, get a File from a file <input> and pass it to
-    a function:  
+<!--  
+// example.component.html
+Get a File from a file <input> and pass it to a component method:  
 -->
 <p>Choose file to generate data url from:</p>
 <input type="file"  (change)="addToURLs($event.target.files[0])"/>
 ```
 
 ```ts
-// In a javascript component:
+// example.component.ts:
 
-dataURLs = [];
+export class ExampleComponent {
+    dataURLs = [];
 
-async addToURLs(file) {
-     let url = await getDataURL(file);
-     this.dataURLs.push(url);
+    async addToURLs(file) {
+        let url = await getDataURL(file); // extracts url
+        this.dataURLs.push(url);
+    }
 }
 ```
 
 ## Installation
-
 ```bash
 npm i  @writetome51/get-data-url
 ```
 
 ## Loading
-```ts
-// If using TypeScript:
+```js
 import {getDataURL} from '@writetome51/get-data-url';
-// If using ES5 JavaScript:
-var getDataURL = require('@writetome51/get-data-url').getDataURL;
 ```
